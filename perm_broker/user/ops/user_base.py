@@ -111,7 +111,7 @@ def disable_user(user_id):
 
 
 def update_user(user_id, **kw):
-    user = get_inst(db.User, id=user_id)
+    user = db.get_inst(db.User, id=user_id)
     if not u:
         return False, "用户不存在"
     if 'name' in kw:

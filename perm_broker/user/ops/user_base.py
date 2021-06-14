@@ -112,13 +112,13 @@ def disable_user(user_id):
 
 def update_user(user_id, **kw):
     user = db.get_inst(db.User, id=user_id)
-    if not u:
+    if not user:
         return False, "用户不存在"
     if 'name' in kw:
-        u.name = kw.pop('name')
-    u.info = {**u.info, **kw}
-    u.save()
-    return True, to_dict(u)
+        user.name = kw.pop('name')
+    user.info = {**user.info, **kw}
+    user.save()
+    return True, to_dict(user)
 
 
 def get_audit_log_desc(log_entry):

@@ -155,9 +155,8 @@ def refresh_user_info_roles(user_id, roles):
         if roles:
             role_names = [role_desc.name for role_desc in\
                           db.get_list_query(db.RoleDesc,
-                                            {'$in': ['id', roles],
-                                             'soft_del': False})]
-        user.info['role_names'] = role_names
+                                            **{'$in': ['id', roles],
+                                               'soft_del': False})]
         user.info = {**user.info, **{'role_names': role_names}}
         user.save()
         return True

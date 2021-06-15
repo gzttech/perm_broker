@@ -142,7 +142,7 @@ def get_user_roles(user_id):
     user_perm = db.get_inst(db.UserPerm, user_id=user_id, soft_del=False)
     if user_perm and user_perm.roles:
         roles = db.get_list_query(db.RoleDesc,
-                                  **{'$id': {'id': user_perm.roles},
+                                  **{'$in': ['id', user_perm.roles],
                                      'soft_del': False})
         return roles
     return []

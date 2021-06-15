@@ -61,7 +61,7 @@ def update_perms(perms, user_id=None, role_id=None):
         role = db.get_inst(db.RoleDesc, id=role_id)
         if not role:
             return False, "目标角色不存在"
-        user_perm.perms = parsed_perms
+        role.perms = parsed_perms
         role.save()
         return True, role
     else:

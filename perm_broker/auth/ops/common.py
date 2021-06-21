@@ -4,7 +4,6 @@ from ...backend import db
 
 def is_logined(req, session):
     user_id = session.get('user_id')
-    print(user_id, session)
 
     if not user_id:
         return False

@@ -48,7 +48,8 @@ def send_json_result(code, result=None, msg=None):
     status = STATUS_CODES.get(sc_code)
     ret = json.dumps({'code': status[0],
                       'result': {} if result is None else result,
-                      'msg': msg or status[1]})
+                      'msg': msg or status[1]},
+                     ensure_ascii=False)
     resp = flask.Response(ret)
     resp.content_type = 'application/json'
     return resp

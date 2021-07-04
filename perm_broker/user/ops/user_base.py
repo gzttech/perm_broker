@@ -5,6 +5,8 @@ from ...backend import db
 
 def to_dict(user, with_info=False, fields=None):
     ret = {'user_id': str(user.id),
+           'lut': str(getattr(user, 'lut', None)\
+                      or user.info.get('lut') or user.created or ''),
            'created': str(user.created),
            'name': user.name,
            'soft_del': user.soft_del}

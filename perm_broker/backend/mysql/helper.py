@@ -7,7 +7,7 @@ def parse_key(expr_key, model_cls):
         full_path = expr_key.split('.')
         field = full_path[0]
         path = '.'.join(['$', *full_path[1:]])
-        return sa.func.json_value(getattr(model_cls, field), path)
+        return sa.func.json_extract(getattr(model_cls, field), path)
     else:
         return getattr(model_cls, expr_key)
 

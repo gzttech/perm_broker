@@ -22,6 +22,8 @@ def bson_id_gen():
 
 def model_save(self):
     try:
+        if hasattr(self, 'lut'):
+            self.lut = datetime.datetime.now()
         session.add(self)
         session.commit()
     except Exception as e:

@@ -423,7 +423,7 @@ def api_update_user_role():
     data = flask.request.get_json(force=True, silent=True) or {}
     user_id = data.get('user_id')
     role_ids = data.get('role_ids') or []
-    if not (user_id and role_ids):
+    if not user_id:
         return api_base.send_json_result("FORBIDDEN")
     succ, obj = user_perm.update_user_roles(user_id, role_ids)
     if succ:

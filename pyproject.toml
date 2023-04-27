@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "perm_broker"
-version = "0.1.5"
+version = "0.1.6"
 description = ""
 authors = ["Gongziting Tech Ltd."]
 license = "MIT"

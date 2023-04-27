@@ -24,6 +24,8 @@ def model_save(self):
     try:
         if hasattr(self, 'lut'):
             self.lut = datetime.datetime.now()
+        elif hasattr(self, 'info'):
+            self.info['lut'] = str(datetime.datetime.now())
         session.add(self)
         session.commit()
     except Exception as e:
